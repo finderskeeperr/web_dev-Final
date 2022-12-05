@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Fredoka One" rel="stylesheet"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+        <title>add task</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* background: rgb(209, 153, 79); */
+        box-sizing: border-box;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        background: rgb(163, 137, 103);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+      .bttn {
+        padding: 10px 60px;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 500;
+        border-radius: 30px;
+      }
+      .popup {
+        position: absolute;
+        width: 500px;
+        left: 50%;
+        top:0%;
+        height: 500px;
+        background: #fffbf1;
+        border-radius: 20px;
+        transform:translate(-50%, -50%)scale(0.1);
+        text-align: center;
+        visibility: hidden;
+      }
+      .button {
+        padding: 4px 6px;
+        border: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: 500;
+        border-radius: 30px;
+        float: right;
+        margin-right: 20px;
+        margin-top: 20px;
+      }
+      hr {
+        height: 0px;
+        background-color: #dc9c74;
+        border: 3px solid #dc9c74;
+        margin-top: 80px;
+        width: 460px;
+        margin-left: 20px;
+      }
+      .popup h2 {
+        position: absolute;
+        width: 200px;
+        height: 20px;
+        left: 150px;
+        top: 20px;
+        font-family: "Fredoka One";
+        font-style: normal;
+        font-size: 32px;
+        align-items: center;
+        letter-spacing: 0.1em;
+        color: #6c8054;
+      }
+
+      .open-popup{
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%)scale(1);
+      }
+      input[type="titlee"] {
+        box-sizing: border-box;
+        position: absolute;
+        width: 445px;
+        height: 45px;
+        left: 30px;
+        top: 110px;
+        background: #d0f3a5;
+        border: 1px solid #6c8054;
+        border-radius: 15px;
+        font-family: "Fredoka One";
+      }
+      .Date h3 {
+        position: absolute;
+        width: 94px;
+        left: 30px;
+        top: 160px;
+        font-family: "Fredoka One";
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        color: #dc9c74;
+        background: #fffbf1;
+      }
+      input[type="date"] {
+        box-sizing: border-box;
+        position: absolute;
+        width: 200px;
+        height: 45px;
+        left: 30px;
+        top: 210px;
+        background: #d0f3a5;
+        border: 1px solid #6c8054;
+        font-family: "Fredoka One";
+        border-radius: 15px;
+      } 
+      body{
+        font-family: "Open Sans";
+        font-size:16px;
+      }
+      .dropdown{
+        margin-top:103px;
+        padding-top: 12px;
+        height:45px;
+        background: #d0f3a5;
+        border: 1px solid #6c8054;
+        margin-left:245px;
+        width: 200px;
+        height: 45px;
+        border-radius: 15px;
+        cursor: pointer;
+        justify-content: space-between;
+        border-radius: 15px;
+        font-family: "Fredoka One";
+        position: absolute;
+        list-style-type: none;
+      }
+      .dropdown-menu{
+        background: #D0F3A5;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        width: 200px;
+      }
+      textarea {
+        box-sizing: border-box;
+        width: 440px;
+        height: 150px;
+        margin-top: 170px;
+        background: #EBC6A9;
+        border: 4px solid #DC9C74;
+        border-radius: 15px;
+        text-align:left;
+        font-family: "Fredoka One";
+      }
+      .caret{
+        margin-left: 100px;
+      }
+      h3{
+        position: absolute;
+        width: 94px;
+        left: 270px;
+        top: 160px;
+        font-family: "Fredoka One";
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        color: #dc9c74;
+        background: #fffbf1;    
+      }
+      .save{
+        /* position: absolute; */
+        width: 150px;
+        height: 50px;
+        margin-left: 15px;
+        margin-top: 7px;
+        background: #DC9C74;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        font-family: "Fredoka One";
+      }
+     
+
+    </style>
+      
+  
+  </head>
+  <body>
+    <div class="container">
+      <button type="submit" class="bttn" onclick="openPopup()">Add task</button>
+      <div class="popup" id="popup">
+        <button type="exit" class="button">X</button>
+        <hr />
+        <h2>add a task</h2>
+        <input type="titlee" placeholder="title" id="titlee" required />
+        <div class="Date">
+          <h3>Due Date</h3>
+          <input type="date" id="birthday" name="birthday" />
+        </div>
+        <h3>Status</h3>
+
+
+        <ul>
+          <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">Status<b class="caret"></b></a>
+              <ul class="dropdown-menu" type="none">
+                  <li><a href="#"><i class="bx bxs-flag-alt" id = "urgent" style="color:#dc1d1d"> </i> Urgent</a></li>
+                  <li><a href="#"><i class="bx bxs-flag-alt" id = "high" style="color:#dedb29"  > </i> High</a></li>
+                  <li><a href="#"><i class="bx bxs-flag-alt" id = "normal" style= "color:#165275"  > </i> Normal</a></li>
+                  <li><a href="#"><i class="bx bxs-flag-alt" id = "low" style= "color:#646a6f"  > </i> Low</a></li>
+              </ul>
+          </li>
+      </ul>
+      <textarea placeholder="description here..." ></textarea>
+      <button type="submit" class="save" onclick="closePopup()">save task</button>
+    </div>
+  </body>
+</html>
+    </div>
+
+    <!-- script for showing and hiding the popup -->
+<script>
+let popup = document.getElementById("popup");
+
+function openPopup(){
+  popup.classList.add("open-popup");
+
+}
+function closePopup(){
+  popup.classList.remove("open-popup");
+
+}
+
+
+</script>
+
+  </body>
+</html>
